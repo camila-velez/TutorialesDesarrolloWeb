@@ -34,7 +34,7 @@ static show(req: Request, res: Response): void {
     const book = Book.findById(books, id);
     res.render("home/show", {
       title: book.title,
-      book});
+      book}); 
   }
 
 }
