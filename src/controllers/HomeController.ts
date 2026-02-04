@@ -24,14 +24,17 @@ static contact(req: Request, res: Response): void {
 
     res.render('home/contact', { viewData: viewData });
 }
-static Main_Point(req: Request, res: any) {
+static books(req: Request, res: Response) {
     const viewData: any = {};
      viewData["books"] = books;
     res.render('home/books', viewData);
   }
-static show(req: any, res: any) {
-    const book = Book.findById(books, parseInt(req.params.id));
-    res.render('home/show', { book: book })
+static show(req: Request, res: Response): void {
+    const id = Number(req.params.id);
+    const book = Book.findById(books, id);
+    res.render("home/show", {
+      title: book.title,
+      book});
   }
 
 }
